@@ -39,10 +39,13 @@ VERSION=1.3.6
 HASH=ece5cfc9c7af0cbe90c0065ef33e85ed42991830
 PERSISTENT_LOGIN_VERSION=dc5ca3d3f4415cc41edb2fde533c8a8628a94c76
 HTML5_NOTIFIER_VERSION=4b370e3cd60dabd2f428a26f45b677ad1b7118d5
-CARDDAV_VERSION=2.0.4
-CARDDAV_HASH=d93f3cfb3038a519e71c7c3212c1d16f5da609a4
+CARDDAV_VERSION=3.0.1
+CARDDAV_HASH=80b64ed7ed72cd5ef51d3d42e9226fd2aadc5390
+KEYBOARD_SHORTCUTS_VERSION=64b24e8f190fbe4283b39cafeb598f43342bc85a
+CHAMELEON_BLUE_VERSION=0.39.01
+CHAMELEON_BLUE_HASH=4213ed78146b3e0d2712220fff1e9fe8bee26332
 
-UPDATE_KEY=$VERSION:$PERSISTENT_LOGIN_VERSION:$HTML5_NOTIFIER_VERSION:$CARDDAV_VERSION
+UPDATE_KEY=$VERSION:$PERSISTENT_LOGIN_VERSION:$HTML5_NOTIFIER_VERSION:$CARDDAV_VERSION:$KEYBOARD_SHORTCUTS_VERSION:$CHAMELEON_BLUE_VERSION
 
 # paths that are often reused.
 RCM_DIR=/usr/local/lib/roundcubemail
@@ -83,6 +86,19 @@ if [ $needs_update == 1 ]; then
 	# unzip and cleanup
 	unzip -q /tmp/carddav.zip -d ${RCM_PLUGIN_DIR}
 	rm -f /tmp/carddav.zip
+
+	# install roundcube keyboard_shortcuts plugin
+	git_clone https://github.com/corbosman/keyboard_shortcuts.git $KEYBOARD_SHORTCUTS_VERSION '' ${RCM_PLUGIN_DIR}/keyboard_shortcuts
+
+	# download and verify the full release of the chameleon-blue skin
+	wget_verify \
+		https://github.com/Anisotropic/chameleon-blue/releases/download/${CHAMELEON_BLUE_VERSION}/chameleon-blue-${CHAMELEON_BLUE_VERSION}.zip \
+		$CHAMELEON_BLUE_HASH \
+		/tmp/chameleon-blue.zip
+	
+	# unzip and cleanup
+	unzip -q /tmp/chameleon-blue.zip -d ${RCM__DIR}
+	rm -f /tmp/chameleon-blue.zip			
 
 	# record the version we've installed
 	echo $UPDATE_KEY > ${RCM_DIR}/version
@@ -126,11 +142,11 @@ cat > $RCM_CONFIG <<EOF;
      'verify_peer_name'  => false,
    ),
  );
-\$config['support_url'] = 'https://mailinabox.email/';
-\$config['product_name'] = '$PRIMARY_HOSTNAME Webmail';
+\$config['support_url'] = 'https://hab.ooo/';
+\$config['product_name'] = 'hab.ooo Webmail served with aloha';
 \$config['des_key'] = '$SECRET_KEY';
-\$config['plugins'] = array('html5_notifier', 'archive', 'zipdownload', 'password', 'managesieve', 'jqueryui', 'persistent_login', 'carddav');
-\$config['skin'] = 'larry';
+\$config['plugins'] = array('html5_notifier', 'archive', 'zipdownload', 'password', 'managesieve', 'jqueryui', 'persistent_login', 'carddav','enigma','keyboard_shortcuts');
+\$config['skin'] = 'chameleon-blue';
 \$config['login_autocomplete'] = 2;
 \$config['password_charset'] = 'UTF-8';
 \$config['junk_mbox'] = 'Spam';
