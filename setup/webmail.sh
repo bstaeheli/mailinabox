@@ -97,7 +97,7 @@ if [ $needs_update == 1 ]; then
 		/tmp/chameleon-blue.zip
 	
 	# unzip and cleanup
-	unzip -q /tmp/chameleon-blue.zip -d ${RCM__DIR}
+	unzip -q /tmp/chameleon-blue.zip -d ${RCM_DIR}
 	rm -f /tmp/chameleon-blue.zip			
 
 	# record the version we've installed
