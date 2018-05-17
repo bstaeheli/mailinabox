@@ -528,7 +528,7 @@ zone:
 
 def dnssec_choose_algo(domain, env):
 	if '.' in domain and domain.rsplit('.')[-1] in \
-		("email", "guide", "fund", "be", "lv", "ch", "li"):
+		("email", "guide", "fund", "be", "lv", "ch", "li", "ooo"):
 		# At GoDaddy, RSASHA256 is the only algorithm supported
 		# for .email and .guide.
 		# A variety of algorithms are supported for .fund. This
