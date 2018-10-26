@@ -192,7 +192,7 @@ cat > ${RCM_PLUGIN_DIR}/enigma/config.inc.php <<EOF;
 \$config['enigma_pgp_driver'] = 'gnupg';
 $config['enigma_smime_driver'] = 'phpssl';
 $config['enigma_debug'] = false;
-$config['enigma_pgp_homedir'] = '$STORAGE_ROOT/mail/roundcube/enigma_home';;
+$config['enigma_pgp_homedir'] = '$STORAGE_ROOT/mail/roundcube/enigma_home';
 $config['enigma_pgp_binary'] = '';
 $config['enigma_pgp_agent'] = '';
 $config['enigma_pgp_gpgconf'] = '';
