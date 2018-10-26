@@ -145,7 +145,18 @@ cat > $RCM_CONFIG <<EOF;
 \$config['support_url'] = 'https://hab.ooo/';
 \$config['product_name'] = 'hab.ooo Webmail served with aloha';
 \$config['des_key'] = '$SECRET_KEY';
-\$config['plugins'] = array('html5_notifier', 'archive', 'zipdownload', 'password', 'managesieve', 'jqueryui', 'persistent_login', 'carddav','enigma','keyboard_shortcuts');
+\$config['plugins'] = array(
+	'html5_notifier',
+	'archive',
+	'zipdownload',
+	'password',
+	'managesieve',
+	'jqueryui',
+	'persistent_login',
+	'carddav',
+	'enigma',
+	'keyboard_shortcuts'
+);
 \$config['skin'] = 'chameleon-blue';
 \$config['login_autocomplete'] = 2;
 \$config['password_charset'] = 'UTF-8';
