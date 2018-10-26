@@ -185,8 +185,33 @@ cat > ${RCM_PLUGIN_DIR}/carddav/config.inc.php <<EOF;
 ?>
 EOF
 
+# Configure enigma
+cat > ${RCM_PLUGIN_DIR}/enigma/config.inc.php <<EOF;
+<?php
+/* Do not edit. Written by Mail-in-a-Box. Regenerated on updates. */
+\$config['enigma_pgp_driver'] = 'gnupg';
+$config['enigma_smime_driver'] = 'phpssl';
+$config['enigma_debug'] = false;
+$config['enigma_pgp_homedir'] = '$STORAGE_ROOT/mail/roundcube/enigma_home';;
+$config['enigma_pgp_binary'] = '';
+$config['enigma_pgp_agent'] = '';
+$config['enigma_pgp_gpgconf'] = '';
+$config['enigma_pgp_cipher_algo'] = null;
+$config['enigma_pgp_digest_algo'] = null;
+$config['enigma_multihost'] = false;
+$config['enigma_signatures'] = true;
+$config['enigma_decryption'] = true;
+$config['enigma_encryption'] = true;
+$config['enigma_sign_all'] = false;
+$config['enigma_encrypt_all'] = false;
+$config['enigma_attach_pubkey'] = false;
+$config['enigma_password_time'] = 30;
+$config['enigma_options_lock'] = array();
+?>
+EOF
+
 # Create writable directories.
-mkdir -p /var/log/roundcubemail /var/tmp/roundcubemail $STORAGE_ROOT/mail/roundcube
+mkdir -p /var/log/roundcubemail /var/tmp/roundcubemail $STORAGE_ROOT/mail/roundcube $STORAGE_ROOT/mail/roundcube/enigma_home
 chown -R www-data.www-data /var/log/roundcubemail /var/tmp/roundcubemail $STORAGE_ROOT/mail/roundcube
 
 # Ensure the log file monitored by fail2ban exists, or else fail2ban can't start.
