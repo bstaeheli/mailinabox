@@ -158,6 +158,9 @@ cat > $RCM_CONFIG <<EOF;
 	'keyboard_shortcuts'
 );
 \$config['skin'] = 'chameleon-blue';
+\$config['skin_logo'] = array(
+	'*' => 'https://box.hab.ooo/Habooo_Logo_roundcube.png'
+);
 \$config['login_autocomplete'] = 2;
 \$config['password_charset'] = 'UTF-8';
 \$config['junk_mbox'] = 'Spam';
