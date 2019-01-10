@@ -35,12 +35,12 @@ apt-get purge -qq -y roundcube* #NODOC
 # Install Roundcube from source if it is not already present or if it is out of date.
 # Combine the Roundcube version number with the commit hash of plugins to track
 # whether we have the latest version of everything.
-VERSION=1.3.7
-HASH=df0e29d09aae0b7a7ae98023dcd1ae3c6be77cd0
+VERSION=1.3.8
+HASH=90c7900ccf7b2f46fe49c650d5adb9b85ee9cc22
 PERSISTENT_LOGIN_VERSION=dc5ca3d3f4415cc41edb2fde533c8a8628a94c76
 HTML5_NOTIFIER_VERSION=4b370e3cd60dabd2f428a26f45b677ad1b7118d5
 CARDDAV_VERSION=3.0.3
-CARDDAV_HASH=D1E3B0D851FFA2C6BD42BF0C04F70D0E1D0D78F8
+CARDDAV_HASH=d1e3b0d851ffa2c6bd42bf0c04f70d0e1d0d78f8
 KEYBOARD_SHORTCUTS_VERSION=64b24e8f190fbe4283b39cafeb598f43342bc85a
 CHAMELEON_BLUE_VERSION=0.39.01
 CHAMELEON_BLUE_HASH=4213ed78146b3e0d2712220fff1e9fe8bee26332
